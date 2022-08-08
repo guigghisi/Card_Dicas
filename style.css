@@ -1,0 +1,261 @@
+body {
+  position: relative;
+  width: 1440px;
+  height: 1024px;
+
+  background: #ffffff;
+}
+#cadastro {
+  position: absolute;
+  width: 569px;
+  height: 1024px;
+  left: 0px;
+  top: 0px;
+
+  background: #1e195b;
+}
+#cards {
+  position: absolute;
+  width: 864px;
+  height: 1024px;
+  left: 576px;
+  top: 0px;
+
+  background: #f6f7f9;
+}
+#livro {
+  position: absolute;
+  width: 90px;
+  height: 96.7px;
+  left: 79px;
+  top: 32px;
+}
+#textoTitulo {
+  position: absolute;
+  width: 312px;
+  height: 55px;
+  left: 185px;
+  top: 39px;
+  font-family: "Ubuntu";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 28px;
+
+  color: #ffffff;
+}
+#subtitulo {
+  position: absolute;
+  width: 202px;
+  height: 27px;
+  left: 240px;
+  top: 94px;
+
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 27px;
+
+  color: #ffffff;
+}
+#formulario > form > div > label {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 30px;
+  color: #ffffff;
+}
+
+#formulario > form > div > input {
+  box-sizing: border-box;
+
+  position: absolute;
+  width: 500px;
+  height: 45px;
+  left: 0px;
+  top: 39px;
+
+  background: #ffffff;
+  border: 4px solid #d9d9d9;
+  border-radius: 16px;
+}
+#divInputTitulo {
+  position: absolute;
+  width: 512px;
+  height: 93px;
+  left: 32px;
+  top: 145px;
+}
+
+#divInputLinguagem {
+  position: absolute;
+  width: 512px;
+  height: 93px;
+  left: 32px;
+  top: 254px;
+}
+
+#divInputCategoria {
+  position: absolute;
+  width: 512px;
+  height: 93px;
+  left: 32px;
+  top: 363px;
+}
+
+#divInputCategoria > select {
+  box-sizing: border-box;
+
+  position: absolute;
+  width: 500px;
+  height: 45px;
+  left: 0px;
+  top: 39px;
+
+  background: #ffffff;
+  border: 4px solid #d9d9d9;
+  border-radius: 16px;
+}
+#divInputDescricao {
+  position: absolute;
+  width: 512px;
+  height: 337px;
+  left: 32px;
+  top: 472px;
+}
+
+#divInputDescricao > textarea {
+  box-sizing: border-box;
+
+  position: absolute;
+  width: 512px;
+  height: 298px;
+  left: 0px;
+  top: 39px;
+
+  background: #ffffff;
+  border: 4px solid #d9d9d9;
+  border-radius: 16px;
+}
+#divInputVideo {
+  position: absolute;
+  width: 512px;
+  height: 93px;
+  left: 32px;
+  top: 825px;
+}
+
+#btnLimpar {
+  position: absolute;
+  width: 240px;
+  height: 42px;
+  left: 41px;
+  top: 950px;
+  box-sizing: border-box;
+
+  background: #def010;
+  border: 2px solid #d9d9d9;
+  border-radius: 64px;
+}
+#btnSalvar {
+  box-sizing: border-box;
+
+  position: absolute;
+  width: 240px;
+  height: 42px;
+  left: 297px;
+  top: 950px;
+  background: #3ace5a;
+  border: 2px solid #d9d9d9;
+  border-radius: 64px;
+}
+#indicativos {
+  position: absolute;
+  width: 802px;
+  height: 100px;
+  left: 32px;
+  top: 32px;
+}
+#indicativos > div > p:nth-child(1) {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 29px;
+  margin-top: 10px;
+  text-align: center;
+
+  color: #442f2f;
+}
+#indicativos > div > p:nth-child(2) {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 0px;
+  text-align: center;
+
+  color: #442f2f;
+}
+#indicativos > div {
+  position: relative;
+  width: 150px;
+  height: 100px;
+  left: 0px;
+  top: 0px;
+  margin-right: 4px;
+  display: inline-block;
+
+  background: #ffffff;
+  border-radius: 16px;
+}
+
+#pesquisa {
+  position: absolute;
+  width: 802px;
+  height: 54px;
+  left: 32px;
+  top: 164px;
+}
+#inputPesquisa {
+  box-sizing: border-box;
+  width: 658px;
+  height: 54px;
+
+  background: #ffffff;
+  border: 2px solid #1e195b;
+  border-radius: 64px;
+}
+#btnPesquisa {
+  box-sizing: border-box;
+  position: absolute;
+  width: 64px;
+  height: 54px;
+  left: 666px;
+  top: 0px;
+  background: #ffffff;
+  border: 2px solid #1e195b;
+  border-radius: 64px;
+}
+#btnLimparPesquisa {
+  box-sizing: border-box;
+  position: absolute;
+  width: 64px;
+  height: 54px;
+  left: 738px;
+  top: 0px;
+  background: #ffffff;
+  border: 2px solid #1e195b;
+  border-radius: 64px;
+}
+#cardDicas {
+  position: absolute;
+  width: 802px;
+  height: 757px;
+  left: 32px;
+  top: 264px;
+  background: #1e195b;
+  overflow-y: scroll;
+}
