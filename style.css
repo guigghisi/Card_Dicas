@@ -2,7 +2,6 @@ body {
   position: relative;
   width: 1440px;
   height: 1024px;
-
   background: #ffffff;
 }
 #cadastro {
@@ -41,15 +40,27 @@ body {
   font-weight: 400;
   font-size: 24px;
   line-height: 28px;
-
+  color: #ffffff;
+}
+#textoTituloH1 {
+  position: absolute;
+  width: 312px;
+  height: 55px;
+  left: 253px;
+  top: 24px;
+  font-family: "Ubuntu";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 28px;
   color: #ffffff;
 }
 #subtitulo {
   position: absolute;
   width: 202px;
   height: 27px;
-  left: 240px;
-  top: 94px;
+  left: 224px;
+  top: 76px;
 
   font-family: "Open Sans";
   font-style: normal;
