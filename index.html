@@ -11,7 +11,7 @@
   </head>
   <body>
     <div id="cadastro">
-      <div id="titulo">
+      <div id="cabecalho">
       <img id="livro" src="assets/book.png" alt="livro" />
       <div id="textoTitulo"><p>DEVin</p></div>
       <div id="textoTituloH1"> <h1>Knowledge</h1></div>
@@ -19,18 +19,18 @@
       </div>
 
       <div id="formulario">
-        <form  method="post">
+        <form method="post">
           <div id="divInputTitulo">
             <label for="titulo">Título</label>
-            <input type="text" id="titulo" name="titulo" placeholder="Digite um título" />
+            <input type="text" id="titulo" name="titulo" placeholder="Digite um título"  minlength="8" maxlength="64" />
           </div>
           <div id="divInputLinguagem">
             <label for="linguagem">Linguagem/Skill</label>
-            <input type="text" id="linguagem" name="linguagem" placeholder="Digite uma linguagem ou skill" />
+            <input type="text" id="linguagem" name="linguagem" placeholder="Digite uma linguagem ou skill"  minlength="4" maxlength="16"/>
           </div>
           <div id="divInputCategoria">
             <label for="categoria">Categoria</label>
-            <select id="categoria" name="categoria" placeholder="Digite uma linguagem ou skill" />
+            <select id="categoria" name="categoria" placeholder="Digite uma linguagem ou skill"  />
               <option value="">Selecione uma categoria</option>
               <option value="frontend">FrontEnd</option>
               <option value="backend">BackEnd</option>
@@ -40,14 +40,14 @@
           </div>
           <div id="divInputDescricao">
             <label for="descricao">Descrição</label>
-            <textarea id="descricao" name="descricao" placeholder="Escreva aqui o detalhamento da sua dica..." /></textarea>
+            <textarea id="descricao" name="descricao" placeholder="Escreva aqui o detalhamento da sua dica..."  minlength="32" maxlength="512" /></textarea>
           </div>
           <div id="divInputVideo">
             <label id="labelVideo" for="video">Video do Youtube</label>
-            <input type="text" id="video" name="video" placeholder="https://suaurl.com" />
+            <input type="url" id="video" name="video" placeholder="https://suaurl.com" />
           </div>
 <button type="reset" id="btnLimpar">Limpar</button>
-<button type="submit" id="btnSalvar">Salvar</button>
+<button type="submit" onclick="salvar()" id="btnSalvar">Salvar</button>
 </form>
 </div>
     <div id="cards">
