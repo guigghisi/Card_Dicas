@@ -270,3 +270,111 @@ body {
   background: #1e195b;
   overflow-y: scroll;
 }
+#modeloCard {
+  position: relative;
+  width: 778px;
+  height: 382px;
+  left: 1px;
+  top: 2px;
+
+  background: #ffffff;
+  border-radius: 16px;
+  margin-bottom: 20px;
+}
+#tituloCard > p {
+  position: relative;
+  width: 770px;
+  height: 34px;
+  left: 16px;
+  top: 16px;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 39px;
+  text-align: center;
+
+  color: #000000;
+}
+#linguagemCard {
+  position: absolute;
+  width: 227px;
+  height: 24px;
+  left: 16px;
+  top: 58px;
+}
+#linguagemCard > p {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  color: #000000;
+}
+#categoriaCard {
+  position: absolute;
+  width: 227px;
+  height: 24px;
+  left: 16px;
+  top: 90px;
+}
+#categoriaCard > p {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  color: #000000;
+}
+#descricaoCard {
+  position: absolute;
+  width: 770px;
+  height: 172px;
+  left: 16px;
+  top: 130px;
+}
+#descricaoCard > p {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  display: flex;
+  color: #000000;
+}
+#btnExcluir {
+  box-sizing: border-box;
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  left: 717px;
+  top: 318px;
+  border: 1px solid #000000;
+  border-radius: 64px;
+}
+#btnEditar {
+  box-sizing: border-box;
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  left: 664px;
+  top: 318px;
+  border: 1px solid #000000;
+  border-radius: 64px;
+}
+#btnVideo {
+
+  box-sizing: border-box;
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  left: 608px;
+  top: 318px;
+  border: 1px solid #000000;
+  border-radius: 64px;
+}
