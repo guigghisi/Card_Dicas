@@ -23,3 +23,47 @@ function salvar() {
   localStorage.setItem("cards", JSON.stringify(cards));
   alert("Card salvo com sucesso!");
 }
+
+function removerCard() {
+  event.preventDefault();
+  console.log("Remover");
+  var cards = JSON.parse(localStorage.getItem("cards")) || [];
+  cards.pop();
+  localStorage.setItem("cards", JSON.stringify(cards));
+  alert("Card removido com sucesso!");
+}
+
+function colocarCardDiv() {
+  var cards = JSON.parse(localStorage.getItem("cards")) || [];
+  var cardDiv = document.querySelector("#cardDicas");
+  cards.forEach((card) => {
+    console.log(card);
+    var cardAuxiliar = document.createElement("div");
+    cardAuxiliar.id = "modeloCard";
+    cardAuxiliar.innerHTML = `
+    <div id="tituloCard">
+    <p>${card.titulo}</p>
+  </div>
+  <div id="linguagemCard">
+    <p><strong>Linguagem/Skill:    ${card.linguagem}</strong></p>
+  </div>
+  <div id="categoriaCard">
+    <p>Categoria:     ${card.categoria}</p>
+  </div>
+  <div id="descricaoCard">
+    <p>${card.descricao}</p>
+  </div>
+  <div id="divBtnVideo">
+    <button type="button" id="btnVideo"><img id="iconeVideo" src="assets/video.png" height="30px" alt="iconeVideo"></button>
+  </div>
+  <div id="divBtnEditar">
+    <button type="button" id="btnEditar"><img id="iconeEditar" src="assets/editar.png" height="30px" alt="iconeEditar"></button>
+  </div>
+  <div id="divBtnExcluir">
+    <button type="button" id="btnExcluir"><img id="iconeLixeira" src="assets/lixeira.png" height="30px" alt="iconeLixeira"></button>
+  </div>
+    `;
+    cardDiv.appendChild(cardAuxiliar);
+  });
+}
+colocarCardDiv();
