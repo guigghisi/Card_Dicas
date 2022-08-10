@@ -7,7 +7,7 @@ class Card {
     this.link = link;
   }
 }
-
+colocarCardDiv();
 function salvar() {
   event.preventDefault();
   console.log("Salvar");
@@ -22,20 +22,12 @@ function salvar() {
   cards.push(card);
   localStorage.setItem("cards", JSON.stringify(cards));
   alert("Card salvo com sucesso!");
-}
-
-function removerCard() {
-  event.preventDefault();
-  console.log("Remover");
-  var cards = JSON.parse(localStorage.getItem("cards")) || [];
-  cards.pop();
-  localStorage.setItem("cards", JSON.stringify(cards));
-  alert("Card removido com sucesso!");
+  colocarCardDiv();
 }
 
 function colocarCardDiv() {
-  var cards = JSON.parse(localStorage.getItem("cards")) || [];
-  var cardDiv = document.querySelector("#cardDicas");
+  let cards = JSON.parse(localStorage.getItem("cards")) || [];
+  let cardDiv = document.querySelector("#cardDicas");
   cards.forEach((card) => {
     console.log(card);
     var cardAuxiliar = document.createElement("div");
@@ -57,13 +49,42 @@ function colocarCardDiv() {
     <button type="button" id="btnVideo"><img id="iconeVideo" src="assets/video.png" height="30px" alt="iconeVideo"></button>
   </div>
   <div id="divBtnEditar">
-    <button type="button" id="btnEditar"><img id="iconeEditar" src="assets/editar.png" height="30px" alt="iconeEditar"></button>
+    <button type="button" id="btnEditar" onclick="editarCard(${cards.indexOf(
+      card
+    )})"><img id="iconeEditar" src="assets/editar.png" height="30px" alt="iconeEditar"></button>
   </div>
-  <div id="divBtnExcluir">
+  <div id="divBtnExcluir" onclick="deletarCard(${cards.indexOf(card)})">
     <button type="button" id="btnExcluir"><img id="iconeLixeira" src="assets/lixeira.png" height="30px" alt="iconeLixeira"></button>
   </div>
     `;
     cardDiv.appendChild(cardAuxiliar);
   });
 }
-colocarCardDiv();
+function deletarCard(id) {
+  let cards = JSON.parse(localStorage.getItem("cards")) || [];
+
+  cards.splice(id, 1);
+  localStorage.setItem("cards", JSON.stringify(cards));
+  alert("Card deletado com sucesso!");
+  location.reload();
+}
+
+function editarCard(id) {
+  let cards = JSON.parse(localStorage.getItem("cards")) || [];
+  let card = cards[id];
+  document.querySelector("#titulo").value = card.titulo;
+  document.querySelector("#linguagem").value = card.linguagem;
+  document.querySelector("#categoria").value = card.categoria;
+  document.querySelector("#descricao").value = card.descricao;
+  document.querySelector("#video").value = card.link;
+  document.querySelector("#btnSalvar").onclick = function () {
+    cards[id].titulo = document.querySelector("#titulo").value;
+    cards[id].linguagem = document.querySelector("#linguagem").value;
+    cards[id].categoria = document.querySelector("#categoria").value;
+    cards[id].descricao = document.querySelector("#descricao").value;
+    cards[id].link = document.querySelector("#video").value;
+    localStorage.setItem("cards", JSON.stringify(cards));
+    alert("Card editado com sucesso!");
+    location.reload();
+  };
+}
