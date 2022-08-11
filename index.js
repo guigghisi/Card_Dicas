@@ -7,7 +7,7 @@ class Card {
     this.link = link;
   }
 }
-colocarCardDiv();
+
 function salvar() {
   event.preventDefault();
   console.log("Salvar");
@@ -87,4 +87,45 @@ function editarCard(id) {
     alert("Card editado com sucesso!");
     location.reload();
   };
+}
+
+function pesquisaCard(textoPesquisa) {
+  let cards = JSON.parse(localStorage.getItem("cards")) || [];
+  let cardDiv = document.querySelector("#cardDicas");
+  cardDiv.innerHTML = "";
+  cards.forEach((card) => {
+    if (
+      card.titulo.includes(textoPesquisa) ||
+      card.categoria.includes(textoPesquisa)
+    ) {
+      var cardAuxiliar = document.createElement("div");
+      cardAuxiliar.id = "modeloCard";
+      cardAuxiliar.innerHTML = `
+      <div id="tituloCard">
+      <p>${card.titulo}</p>
+    </div>
+    <div id="linguagemCard">
+      <p><strong>Linguagem/Skill:    ${card.linguagem}</strong></p>
+    </div>
+    <div id="categoriaCard">
+      <p>Categoria:     ${card.categoria}</p>
+    </div>
+    <div id="descricaoCard">
+      <p>${card.descricao}</p>
+    </div>
+    <div id="divBtnVideo">
+      <button type="button" id="btnVideo"><img id="iconeVideo" src="assets/video.png" height="30px" alt="iconeVideo"></button>
+    </div>
+    <div id="divBtnEditar">
+      <button type="button" id="btnEditar" onclick="editarCard(${cards.indexOf(
+        card
+      )})"><img id="iconeEditar" src="assets/editar.png" height="30px" alt="iconeEditar"></button>
+    </div>
+    <div id="divBtnExcluir" onclick="deletarCard(${cards.indexOf(card)})">
+      <button type="button" id="btnExcluir"><img id="iconeLixeira" src="assets/lixeira.png" height="30px" alt="iconeLixeira"></button>
+    </div>
+      `;
+      cardDiv.appendChild(cardAuxiliar);
+    }
+  });
 }
