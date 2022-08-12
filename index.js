@@ -55,9 +55,13 @@ function salvar() {
     alert("Card salvo com sucesso!");
     colocarCardDiv();
     contagemDeCategoria();
+    document.querySelector("#titulo").value = "";
+    document.querySelector("#linguagem").value = "";
+    document.querySelector("#categoria").value = "";
+    document.querySelector("#descricao").value = "";
+    document.querySelector("#video").value = "";
   }
 }
-colocarCardDiv();
 function colocarCardDiv() {
   let cards = JSON.parse(localStorage.getItem("cards")) || [];
   let cardDiv = document.querySelector("#cardDicas");
@@ -200,4 +204,6 @@ function contagemDeCategoria() {
   document.querySelector("#fullStack").innerHTML = fullstack;
   document.querySelector("#softSkill").innerHTML = comportamental;
 }
+
+colocarCardDiv();
 contagemDeCategoria();
