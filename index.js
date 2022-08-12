@@ -23,11 +23,13 @@ function salvar() {
   localStorage.setItem("cards", JSON.stringify(cards));
   alert("Card salvo com sucesso!");
   colocarCardDiv();
+  contagemDeCategoria();
 }
-
+colocarCardDiv();
 function colocarCardDiv() {
   let cards = JSON.parse(localStorage.getItem("cards")) || [];
   let cardDiv = document.querySelector("#cardDicas");
+  cardDiv.innerHTML = "";
   cards.forEach((card) => {
     console.log(card);
     var cardAuxiliar = document.createElement("div");
@@ -87,6 +89,7 @@ function editarCard(id) {
     alert("Card editado com sucesso!");
     location.reload();
   };
+  contagemDeCategoria();
 }
 
 function pesquisaCard(textoPesquisa) {
@@ -129,3 +132,31 @@ function pesquisaCard(textoPesquisa) {
     }
   });
 }
+
+function contagemDeCategoria() {
+  let cards = JSON.parse(localStorage.getItem("cards")) || [];
+  let total = 0;
+  let frontEnd = 0;
+  let backEnd = 0;
+  let fullstack = 0;
+  let comportamental = 0;
+
+  cards.forEach((card) => {
+    total++;
+    if (card.categoria == "frontend") {
+      frontEnd++;
+    } else if (card.categoria == "backend") {
+      backEnd++;
+    } else if (card.categoria == "fullstack") {
+      fullstack++;
+    } else if (card.categoria == "comportamental/soft") {
+      comportamental++;
+    }
+  });
+  document.querySelector("#total").innerHTML = total;
+  document.querySelector("#frontEnd").innerHTML = frontEnd;
+  document.querySelector("#backEnd").innerHTML = backEnd;
+  document.querySelector("#fullStack").innerHTML = fullstack;
+  document.querySelector("#softSkill").innerHTML = comportamental;
+}
+contagemDeCategoria();
