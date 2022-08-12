@@ -7,23 +7,55 @@ class Card {
     this.link = link;
   }
 }
-
+function validaUrlYoutube(url) {
+  var regExp =
+    /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+  var match = url.match(regExp);
+  if (match && match[2].length == 11) {
+    return true;
+  } else {
+    return false;
+  }
+}
+function validarCampos() {
+  let titulo = document.querySelector("#titulo").value;
+  let linguagem = document.querySelector("#linguagem").value;
+  let categoria = document.querySelector("#categoria").value;
+  let descricao = document.querySelector("#descricao").value;
+  let link = document.querySelector("#video").value;
+  if (
+    titulo == "" ||
+    linguagem == "" ||
+    categoria == "" ||
+    descricao == "" ||
+    titulo.length < 9 ||
+    linguagem.length < 4 ||
+    descricao.length < 32
+  ) {
+    alert("Preencha os campos corretamente!");
+    return false;
+  } else if (validaUrlYoutube(link) && link == "") {
+    return false;
+  } else {
+    return true;
+  }
+}
 function salvar() {
   event.preventDefault();
-  console.log("Salvar");
-
-  var titulo = document.querySelector("#titulo").value;
-  var linguagem = document.querySelector("#linguagem").value;
-  var categoria = document.querySelector("#categoria").value;
-  var descricao = document.querySelector("#descricao").value;
-  var link = document.querySelector("#video").value;
-  var card = new Card(titulo, linguagem, categoria, descricao, link);
-  var cards = JSON.parse(localStorage.getItem("cards")) || [];
-  cards.push(card);
-  localStorage.setItem("cards", JSON.stringify(cards));
-  alert("Card salvo com sucesso!");
-  colocarCardDiv();
-  contagemDeCategoria();
+  if (validarCampos()) {
+    var titulo = document.querySelector("#titulo").value;
+    var linguagem = document.querySelector("#linguagem").value;
+    var categoria = document.querySelector("#categoria").value;
+    var descricao = document.querySelector("#descricao").value;
+    var link = document.querySelector("#video").value;
+    var card = new Card(titulo, linguagem, categoria, descricao, link);
+    var cards = JSON.parse(localStorage.getItem("cards")) || [];
+    cards.push(card);
+    localStorage.setItem("cards", JSON.stringify(cards));
+    alert("Card salvo com sucesso!");
+    colocarCardDiv();
+    contagemDeCategoria();
+  }
 }
 colocarCardDiv();
 function colocarCardDiv() {
@@ -31,7 +63,6 @@ function colocarCardDiv() {
   let cardDiv = document.querySelector("#cardDicas");
   cardDiv.innerHTML = "";
   cards.forEach((card) => {
-    console.log(card);
     var cardAuxiliar = document.createElement("div");
     cardAuxiliar.id = "modeloCard";
     cardAuxiliar.innerHTML = `
@@ -63,12 +94,13 @@ function colocarCardDiv() {
   });
 }
 function deletarCard(id) {
-  let cards = JSON.parse(localStorage.getItem("cards")) || [];
-
-  cards.splice(id, 1);
-  localStorage.setItem("cards", JSON.stringify(cards));
-  alert("Card deletado com sucesso!");
-  location.reload();
+  if (confirm("Deseja realmente excluir este card?")) {
+    let cards = JSON.parse(localStorage.getItem("cards")) || [];
+    cards.splice(id, 1);
+    localStorage.setItem("cards", JSON.stringify(cards));
+    alert("Card deletado com sucesso!");
+    location.reload();
+  }
 }
 
 function editarCard(id) {
@@ -79,27 +111,36 @@ function editarCard(id) {
   document.querySelector("#categoria").value = card.categoria;
   document.querySelector("#descricao").value = card.descricao;
   document.querySelector("#video").value = card.link;
-  document.querySelector("#btnSalvar").onclick = function () {
-    cards[id].titulo = document.querySelector("#titulo").value;
-    cards[id].linguagem = document.querySelector("#linguagem").value;
-    cards[id].categoria = document.querySelector("#categoria").value;
-    cards[id].descricao = document.querySelector("#descricao").value;
-    cards[id].link = document.querySelector("#video").value;
-    localStorage.setItem("cards", JSON.stringify(cards));
-    alert("Card editado com sucesso!");
+  document.querySelector("#btnLimpar").onclick = function () {
     location.reload();
   };
-  contagemDeCategoria();
+
+  document.querySelector("#btnSalvar").onclick = function () {
+    if (validarCampos()) {
+      cards[id].titulo = document.querySelector("#titulo").value;
+      cards[id].linguagem = document.querySelector("#linguagem").value;
+      cards[id].categoria = document.querySelector("#categoria").value;
+      cards[id].descricao = document.querySelector("#descricao").value;
+      cards[id].link = document.querySelector("#video").value;
+      localStorage.setItem("cards", JSON.stringify(cards));
+      alert("Card editado com sucesso!");
+      location.reload();
+      contagemDeCategoria();
+    }
+  };
 }
 
-function pesquisaCard(textoPesquisa) {
+function pesquisaCard() {
   let cards = JSON.parse(localStorage.getItem("cards")) || [];
   let cardDiv = document.querySelector("#cardDicas");
+  let textoPesquisa = document
+    .querySelector("#inputPesquisa")
+    .value.toLowerCase();
   cardDiv.innerHTML = "";
   cards.forEach((card) => {
     if (
-      card.titulo.includes(textoPesquisa) ||
-      card.categoria.includes(textoPesquisa)
+      card.titulo.toLowerCase().includes(textoPesquisa) ||
+      card.categoria.toLowerCase().includes(textoPesquisa)
     ) {
       var cardAuxiliar = document.createElement("div");
       cardAuxiliar.id = "modeloCard";
