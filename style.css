@@ -282,17 +282,17 @@ body {
 }
 #tituloCard > p {
   position: relative;
-  width: 770px;
+  width: 750px;
   height: 34px;
   left: 16px;
-  top: 10px;
-
+  top: 5px;
+  word-wrap: break-word;
   font-style: normal;
   font-weight: 400;
-  font-size: 32px;
-  line-height: 39px;
+  font-size: 26px;
+  line-height: 25px;
   text-align: center;
-
+  margin-right: 32%;
   color: #000000;
 }
 #linguagemCard {

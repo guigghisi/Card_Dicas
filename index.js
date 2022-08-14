@@ -94,9 +94,18 @@ function colocarCardDiv() {
     <button type="button" id="btnExcluir"><img id="iconeLixeira" src="assets/lixeira.png" height="30px" alt="iconeLixeira"></button>
   </div>
     `;
+    if (card.link != "") {
+      cardAuxiliar.querySelector("#btnVideo").onclick = function () {
+        window.open(card.link, "_blank");
+      };
+    } else if (card.link == "") {
+      cardAuxiliar.querySelector("#divBtnVideo").remove();
+    }
+
     cardDiv.appendChild(cardAuxiliar);
   });
 }
+
 function deletarCard(id) {
   if (confirm("Deseja realmente excluir este card?")) {
     let cards = JSON.parse(localStorage.getItem("cards")) || [];
