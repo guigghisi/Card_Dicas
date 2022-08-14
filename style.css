@@ -1,43 +1,52 @@
 * {
-  font-family: "verdana";
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 body {
-  position: static;
-
+  margin: 0;
+}
+#conteiner {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  flex-flow: row wrap;
   background: #ffffff;
+  width: 99.8%;
+
+  padding: 0%;
+  margin: 0;
 }
+
+#cabecalho {
+  display: flex;
+  width: 100%;
+  padding: 1%;
+  align-items: flex-end;
+  justify-content: center;
+}
+
 #cadastro {
-  position: absolute;
-  width: 569px;
-  height: 1024px;
-  left: 0px;
-  top: 0px;
-
+  display: flex;
+  width: 40%;
+  margin-left: 0%;
+  padding: 0%;
   background: #1e195b;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
 }
-#cards {
-  position: absolute;
-  width: 864px;
-  height: 1024px;
-  left: 576px;
-  top: 0px;
 
+#cards {
+  display: flex;
   background: #f6f7f9;
+  width: 60%;
+  height: 916px;
+  flex-direction: column;
 }
 #livro {
-  position: absolute;
   width: 90px;
   height: 96.7px;
-  left: 79px;
-  top: 32px;
 }
 #textoTitulo {
-  position: absolute;
-  width: 312px;
-  height: 55px;
-  left: 175px;
-  top: 39px;
-
   font-style: normal;
   font-weight: 400;
   font-size: 24px;
@@ -45,12 +54,6 @@ body {
   color: #ffffff;
 }
 #textoTituloH1 {
-  position: absolute;
-  width: 312px;
-  height: 55px;
-  left: 245px;
-  top: 21px;
-
   font-style: normal;
   font-weight: 400;
   font-size: 24px;
@@ -58,17 +61,11 @@ body {
   color: #ffffff;
 }
 #subtitulo {
-  position: absolute;
-  width: 229px;
-  height: 27px;
-  left: 224px;
-  top: 76px;
-
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
   line-height: 27px;
-
+  translate: 18%;
   color: #ffffff;
 }
 #formulario > form > div > label {
@@ -82,113 +79,124 @@ body {
 #formulario > form > div > input {
   box-sizing: border-box;
 
-  position: absolute;
-  width: 500px;
+  width: 100%;
   height: 45px;
-  left: 0px;
-  top: 39px;
+  background: #ffffff;
+  border: 4px solid #d9d9d9;
+  border-radius: 16px;
+}
+#formulario > form > div > input:invalid {
+  border: 2px solid red;
+}
+#formulario > form > div > input:invalid:focus {
+  background-color: #ffd1d1;
+}
+#formulario {
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
 
+#divInputCategoria {
+  display: flex;
+  flex-direction: column;
+  margin: 1%;
+}
+
+#divInputCategoria > select {
+  box-sizing: border-box;
+  width: 100%;
+  height: 45px;
   background: #ffffff;
   border: 4px solid #d9d9d9;
   border-radius: 16px;
 }
 
 #divInputTitulo {
-  position: absolute;
-  width: 512px;
-  height: 93px;
-  left: 32px;
-  top: 145px;
+  display: flex;
+  flex-direction: column;
+  margin: 1%;
 }
 
 #divInputLinguagem {
-  position: absolute;
-  width: 512px;
-  height: 93px;
-  left: 32px;
-  top: 254px;
+  display: flex;
+  flex-direction: column;
+  margin: 1%;
 }
 
 #divInputCategoria {
-  position: absolute;
-  width: 512px;
-  height: 93px;
-  left: 32px;
-  top: 363px;
+  display: flex;
+  flex-direction: column;
+  margin: 1%;
 }
 
-#divInputCategoria > select {
-  box-sizing: border-box;
-
-  position: absolute;
-  width: 500px;
-  height: 45px;
-  left: 0px;
-  top: 39px;
-
-  background: #ffffff;
-  border: 4px solid #d9d9d9;
-  border-radius: 16px;
-}
 #divInputDescricao {
-  position: absolute;
-  width: 512px;
-  height: 337px;
-  left: 32px;
-  top: 472px;
+  display: flex;
+  flex-direction: column;
+  margin: 1%;
 }
 
 #divInputDescricao > textarea {
   box-sizing: border-box;
-
-  position: absolute;
-  width: 512px;
+  width: 100%;
   height: 298px;
-  left: 0px;
-  top: 39px;
-
   background: #ffffff;
   border: 4px solid #d9d9d9;
   border-radius: 16px;
 }
+#divInputDescricao > textarea:invalid {
+  border: 2px solid red;
+}
+#divInputDescricao > textarea:invalid:focus {
+  background-color: #ffd1d1;
+}
 #divInputVideo {
-  position: absolute;
-  width: 512px;
-  height: 93px;
-  left: 32px;
-  top: 825px;
+  display: flex;
+  flex-direction: column;
+  margin: 1%;
+}
+
+#botoesForm {
+  display: flex;
+  flex-direction: row wrap;
+  justify-content: space-around;
+  margin-top: 3%;
 }
 
 #btnLimpar {
-  position: absolute;
-  width: 240px;
+  width: 50%;
   height: 42px;
-  left: 41px;
-  top: 950px;
   box-sizing: border-box;
-
   background: #def010;
   border: 2px solid #d9d9d9;
   border-radius: 64px;
+  margin-right: 1%;
+  margin-left: 1%;
+  transition-duration: 0.4s;
+}
+#btnLimpar:hover {
+  background: #f7ff9d;
 }
 #btnSalvar {
   box-sizing: border-box;
-
-  position: absolute;
-  width: 240px;
+  width: 50%;
   height: 42px;
-  left: 297px;
-  top: 950px;
   background: #3ace5a;
   border: 2px solid #d9d9d9;
   border-radius: 64px;
+  margin-right: 1%;
+  transition-duration: 0.4s;
+}
+#btnSalvar:hover {
+  background: #57fa7a;
 }
 #indicativos {
-  position: absolute;
-  width: 802px;
-  height: 100px;
-  left: 32px;
-  top: 32px;
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: center;
 }
 #indicativos > div > p:nth-child(1) {
   font-style: normal;
@@ -197,7 +205,6 @@ body {
   line-height: 29px;
   margin-top: 10px;
   text-align: center;
-
   color: #442f2f;
 }
 #indicativos > div > p:nth-child(2) {
@@ -206,134 +213,128 @@ body {
   font-size: 30px;
   line-height: 0px;
   text-align: center;
-
   color: #442f2f;
 }
 #indicativos > div {
-  position: relative;
-  width: 150px;
-  height: 100px;
-  left: 0px;
-  top: 0px;
-  margin-right: 4px;
+  width: 20%;
+  margin: 0.3%;
   display: inline-block;
-
   background: #ffffff;
   border-radius: 16px;
+  box-shadow: #000000 0px 0px 10px;
+}
+#pesquisa {
+  display: flex;
+  width: 100%;
+  margin: 0.3%;
 }
 
-#pesquisa {
-  position: absolute;
-  width: 802px;
-  height: 54px;
-  left: 32px;
-  top: 164px;
+#pesquisa form {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
 }
+
 #inputPesquisa {
   box-sizing: border-box;
-  width: 658px;
-  height: 54px;
+  width: 82%;
+  height: 100%;
 
   background: #ffffff;
-  border: 2px solid #1e195b;
   border-radius: 64px;
 }
 #btnPesquisa {
   box-sizing: border-box;
-  position: absolute;
-  width: 64px;
-  height: 54px;
-  left: 666px;
-  top: 0px;
+  width: 8%;
+  height: 100%;
+
   background: #ffffff;
-  border: 2px solid #1e195b;
   border-radius: 64px;
+  transition-duration: 0.4s;
+}
+#btnPesquisa:hover {
+  background: #c7c7c7;
 }
 #btnLimparPesquisa {
   box-sizing: border-box;
-  position: absolute;
-  width: 64px;
-  height: 54px;
-  left: 738px;
-  top: 0px;
+  width: 8%;
+  height: 100%;
+  margin-right: 1%;
   background: #ffffff;
   border: 2px solid #1e195b;
   border-radius: 64px;
+
+  transition-duration: 0.4s;
+}
+#btnLimparPesquisa:hover {
+  background: #c7c7c7;
 }
 #cardDicas {
-  position: absolute;
-  width: 812px;
-  height: 757px;
-  left: 32px;
-  top: 264px;
-  background: #1e195b;
+  display: flex;
   overflow-y: scroll;
+  margin-top: 1%;
+  width: 100%;
+  flex-direction: column;
+  
 }
 #modeloCard {
-  position: relative;
-  width: 778px;
-  height: 382px;
-  left: 7px;
-  top: 2px;
-
+  display: flex;
+  width: 98%;
   background: #ffffff;
   border-radius: 16px;
-  margin-bottom: 20px;
+  margin: 1%;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  box-shadow: #000000 0px 0px 10px;
+}
+#tituloCard {
+  display: flex;
+  width: 100%;
 }
 #tituloCard > p {
   position: relative;
-  width: 750px;
-  height: 34px;
-  left: 16px;
-  top: 5px;
+  width: 100%;
+  height: 100%;
   word-wrap: break-word;
   font-style: normal;
   font-weight: 400;
   font-size: 26px;
   line-height: 25px;
   text-align: center;
-  margin-right: 32%;
   color: #000000;
 }
 #linguagemCard {
-  position: absolute;
-  width: 750px;
-  height: 24px;
-  left: 16px;
-  top: 34px;
+  display: flex;
+  width: 100%;
 }
 #linguagemCard > p {
   font-style: normal;
   font-weight: 700;
   font-size: 20px;
   line-height: 24px;
-  display: flex;
   align-items: center;
   color: #000000;
+  margin: 1%;
 }
 #categoriaCard {
-  position: absolute;
-  width: 750px;
-  height: 24px;
-  left: 16px;
-  top: 62px;
+  display: flex;
+  width: 100%;
 }
 #categoriaCard > p {
   font-style: normal;
   font-weight: 700;
   font-size: 20px;
   line-height: 24px;
-  display: flex;
   align-items: center;
   color: #000000;
+  margin: 1%;
 }
 #descricaoCard {
-  position: absolute;
-  width: 770px;
-  height: 172px;
-  left: 16px;
-  top: 88px;
+  display: flex;
+  width: 98%;
   word-wrap: break-word;
+  margin: 1%;
+  flex-direction: column;
 }
 #descricaoCard > p {
   font-style: normal;
@@ -341,35 +342,36 @@ body {
   font-size: 20px;
   line-height: 24px;
   color: #000000;
-  margin-right: 2%;
 }
 #btnExcluir {
   box-sizing: border-box;
-  position: absolute;
-  width: 48px;
+  width: 100%;
   height: 48px;
-  left: 717px;
-  top: 318px;
   border: 1px solid #000000;
   border-radius: 64px;
 }
 #btnEditar {
   box-sizing: border-box;
-  position: absolute;
-  width: 48px;
+  width: 100%;
   height: 48px;
-  left: 664px;
-  top: 318px;
   border: 1px solid #000000;
   border-radius: 64px;
 }
 #btnVideo {
   box-sizing: border-box;
-  position: absolute;
-  width: 48px;
+  width: 100%;
   height: 48px;
-  left: 608px;
-  top: 318px;
-  border: 1px solid #000000;
   border-radius: 64px;
+  border: 1px solid #000000;
+}
+
+#botoesCard {
+  display: flex;
+  margin-right: 1%;
+  margin-bottom: 1%;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+#botoesCard > div {
+  margin-right: 0.5%;
 }

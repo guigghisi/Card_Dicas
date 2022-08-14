@@ -72,7 +72,7 @@ function colocarCardDiv() {
     cardAuxiliar.innerHTML = `
     <div id="tituloCard">
     <p>${card.titulo}</p>
-  </div>
+  </div> 
   <div id="linguagemCard">
     <p><strong>Linguagem/Skill:    ${card.linguagem}</strong></p>
   </div>
@@ -82,6 +82,7 @@ function colocarCardDiv() {
   <div id="descricaoCard">
     <p>${card.descricao}</p>
   </div>
+  <div id="botoesCard">
   <div id="divBtnVideo">
     <button type="button" id="btnVideo"><img id="iconeVideo" src="assets/video.png" height="30px" alt="iconeVideo"></button>
   </div>
@@ -92,6 +93,7 @@ function colocarCardDiv() {
   </div>
   <div id="divBtnExcluir" onclick="deletarCard(${cards.indexOf(card)})">
     <button type="button" id="btnExcluir"><img id="iconeLixeira" src="assets/lixeira.png" height="30px" alt="iconeLixeira"></button>
+  </div>
   </div>
     `;
     if (card.link != "") {
@@ -170,6 +172,7 @@ function pesquisaCard() {
     <div id="descricaoCard">
       <p>${card.descricao}</p>
     </div>
+    <div id="botoesCard">
     <div id="divBtnVideo">
       <button type="button" id="btnVideo"><img id="iconeVideo" src="assets/video.png" height="30px" alt="iconeVideo"></button>
     </div>
@@ -181,7 +184,15 @@ function pesquisaCard() {
     <div id="divBtnExcluir" onclick="deletarCard(${cards.indexOf(card)})">
       <button type="button" id="btnExcluir"><img id="iconeLixeira" src="assets/lixeira.png" height="30px" alt="iconeLixeira"></button>
     </div>
+    </div>
       `;
+      if (card.link != "") {
+        cardAuxiliar.querySelector("#btnVideo").onclick = function () {
+          window.open(card.link, "_blank");
+        };
+      } else if (card.link == "") {
+        cardAuxiliar.querySelector("#divBtnVideo").remove();
+      }
       cardDiv.appendChild(cardAuxiliar);
     }
   });
