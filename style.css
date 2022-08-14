@@ -349,6 +349,11 @@ body {
   height: 48px;
   border: 1px solid #000000;
   border-radius: 64px;
+
+transition-duration: 0.4s;
+}
+#btnExcluir:hover {
+  background: #c7c7c7;
 }
 #btnEditar {
   box-sizing: border-box;
@@ -356,6 +361,11 @@ body {
   height: 48px;
   border: 1px solid #000000;
   border-radius: 64px;
+
+transition-duration: 0.4s;
+}
+#btnEditar:hover {
+  background: #c7c7c7;
 }
 #btnVideo {
   box-sizing: border-box;
@@ -363,6 +373,10 @@ body {
   height: 48px;
   border-radius: 64px;
   border: 1px solid #000000;
+transition-duration: 0.4s;
+}
+#btnVideo:hover {
+  background: #c7c7c7;
 }
 
 #botoesCard {
