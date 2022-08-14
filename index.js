@@ -126,6 +126,8 @@ function editarCard(id) {
   document.querySelector("#categoria").value = card.categoria;
   document.querySelector("#descricao").value = card.descricao;
   document.querySelector("#video").value = card.link;
+  document.querySelector("#btnLimpar").innerHTML = "Cancelar Edição";
+  document.querySelector("#btnSalvar").innerHTML = "Salvar Edição";
   document.querySelector("#btnLimpar").onclick = function () {
     location.reload();
   };
